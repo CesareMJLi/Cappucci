@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour {
 
+	// public static int numObjects;
 	public float jumpForce = 20f;
 
 	void OnCollisionEnter2D(Collision2D collision){
@@ -32,6 +33,11 @@ public class Platform : MonoBehaviour {
 
 	void OnMouseDown(){
         // this object was clicked - do something
+		// Debug.Log("ONE PLATFORM IS CLICKED");
      	Destroy (this.gameObject);
+		if (PlayerCreateOb.numObjects<3){
+			PlayerCreateOb.numObjects+=1;
+		}
+		Debug.Log("Current objects could be instantiate is"+PlayerCreateOb.numObjects);
   	}   
 }

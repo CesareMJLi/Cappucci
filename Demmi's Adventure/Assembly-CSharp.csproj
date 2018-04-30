@@ -56,9 +56,11 @@
      <Compile Include="Assets\Scripts\DoodleJump\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\DoodleJump\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\DoodlePlayer.cs" />
+     <Compile Include="Assets\Scripts\InifiniteLevelGenerator.cs" />
      <Compile Include="Assets\Scripts\InstatiateObjects.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\PlayerCreateOb.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
