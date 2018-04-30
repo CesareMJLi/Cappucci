@@ -4,6 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class DoodlePlayer : MonoBehaviour {
+
+	public static Transform player = null;
+
 	float movement = 0f;
 	public float movementSpeed = 10f;
 	// public int numObjToBeInstantiates = 3;
@@ -13,6 +16,13 @@ public class DoodlePlayer : MonoBehaviour {
 	// Game Objects
 	// public GameObject objToBeInstantiate;
 
+	void Awake(){
+		if(player != null)
+			Destroy(this.gameObject);
+		else
+			player = transform;
+	}
+
 	// Use this for initialization
 	void Start () {
 		_rigidbody = GetComponent<Rigidbody2D>();
@@ -21,6 +31,10 @@ public class DoodlePlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		movement = Input.GetAxis("Horizontal")*movementSpeed;
+
+		if (player.position.y<InfiniteLevelGenerator.deadline){
+			GameOver();
+		}
 		// if(Input.GetMouseButtonDown(0)&&(numObjToBeInstantiates>0)){
 		// 	InistantiateSomeObj();
     	// }
@@ -42,5 +56,10 @@ public class DoodlePlayer : MonoBehaviour {
 	// 	Instantiate(objToBeInstantiate, mousePos, Quaternion.identity);
 	// 	numObjToBeInstantiates-=1;
 	// }
+
+	void GameOver(){
+		// Debug.Log("GAMEOVER");
+		Time.timeScale = 0.0f;
+	}
 
 }

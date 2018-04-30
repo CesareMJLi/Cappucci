@@ -56,7 +56,7 @@
      <Compile Include="Assets\Scripts\DoodleJump\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\DoodleJump\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\DoodlePlayer.cs" />
-     <Compile Include="Assets\Scripts\InifiniteLevelGenerator.cs" />
+     <Compile Include="Assets\Scripts\InfiniteLevelGenerator.cs" />
      <Compile Include="Assets\Scripts\InstatiateObjects.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\PlayerCharacter.cs" />

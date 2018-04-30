@@ -6,6 +6,8 @@ public class Platform : MonoBehaviour {
 
 	// public static int numObjects;
 	public float jumpForce = 20f;
+	// public GameObject player;
+
 
 	void OnCollisionEnter2D(Collision2D collision){
 
@@ -19,25 +21,13 @@ public class Platform : MonoBehaviour {
 				rb.velocity = velocity;
 			}
 		}	
-	}
+	}   
 
-	// when the object is clicked cancell this object
-	
-	// void Update(){
-	// 	if(Input.GetMouseButtonDown(0)){
-	// 		this.gameObject.SetActive(false);
-    // 	}
-	// }
-	// this is a mistake, cuz when it detects a click of the mouse anywhere in the screen
-	// all the platform objects would be disabled
+	// when the object is far away from the player, destroy it.
 
-	void OnMouseDown(){
-        // this object was clicked - do something
-		// Debug.Log("ONE PLATFORM IS CLICKED");
-     	Destroy (this.gameObject);
-		if (PlayerCreateOb.numObjects<3){
-			PlayerCreateOb.numObjects+=1;
+	void Update(){
+		if (this.gameObject.transform.position.y<DoodlePlayer.player.position.y-20.0f){
+			Destroy(this.gameObject);
 		}
-		Debug.Log("Current objects could be instantiate is"+PlayerCreateOb.numObjects);
-  	}   
+	}
 }
