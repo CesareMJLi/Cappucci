@@ -10,9 +10,12 @@ public class DoodlePlayer : MonoBehaviour {
 	float movement = 0f;
 	public float movementSpeed = 10f;
 
+	private Animator _animator;
+
 	Rigidbody2D _rigidbody;
 
 	void Awake(){
+		_animator = GetComponent<Animator>() as Animator;
 		if(player != null)
 			Destroy(this.gameObject);
 		else
@@ -27,6 +30,13 @@ public class DoodlePlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		movement = Input.GetAxis("Horizontal")*movementSpeed;
+		
+		if (movement>0){
+			_animator.SetTrigger("PlayerWalkRight");
+		}else if (movement<0){
+			_animator.SetTrigger("PlayerWalkLeft");
+		}
+		
 		GameOverJudgement();
 	}
 
