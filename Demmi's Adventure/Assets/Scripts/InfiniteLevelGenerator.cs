@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InfiniteLevelGenerator : MonoBehaviour {
 
-	public GameObject platformPrefab;
+	// public GameObject platformPrefab;
+	public GameObject setPlatformPrefab;
+	private int numObj;
 	
 	public GameObject Player;
 
@@ -29,8 +31,11 @@ public class InfiniteLevelGenerator : MonoBehaviour {
 		// currentHeight = Player.transform.position.y - 35f;
 		// InstantiateObjects();
 		currentHeight = Player.transform.position.y;
+		numObj = setPlatformPrefab.transform.childCount;
 		// First instantiate 5 objects
 		InstantiateObjects();
+
+		// Debug.Log("CHILD ELEMENT COUNT IS "+setPlatformPrefab.transform.childCount);
 	}
 	
 	// Update is called once per frame
@@ -55,7 +60,12 @@ public class InfiniteLevelGenerator : MonoBehaviour {
 		for(int i = 0; i<numPlatforms; i++){
 			spawnPosition.y += Random.Range(minY, maxY);
 			spawnPosition.x = Random.Range(-levelWidth,levelWidth);
-			Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
+
+			// Random.Range(0, SceneManager.sceneCount)
+			int index = Random.Range(1, numObj+1);
+			GameObject obj = setPlatformPrefab.transform.Find(index.ToString()).gameObject;
+
+			Instantiate(obj, spawnPosition, Quaternion.identity);
 		}
 		currentHeight = spawnPosition.y;
 	}
