@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
+  - Obs1
+  - Obs2
+  - Obs3
+  - Obs4
+  - 1
+  - 2
+  - 3
+  - 4
   layers:
   - Default
   - TransparentFX
