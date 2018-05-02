@@ -26,7 +26,7 @@ public class Platform : MonoBehaviour {
 	// when the object is far away from the player, destroy it.
 
 	void Update(){
-		if (this.gameObject.transform.position.y<DoodlePlayer.player.position.y-20.0f){
+		if (this.gameObject.transform.position.y<DoodlePlayer.player.position.y-23.0f){
 			Destroy(this.gameObject);
 		}
 	}

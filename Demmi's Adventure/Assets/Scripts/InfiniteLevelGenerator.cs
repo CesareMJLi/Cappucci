@@ -47,7 +47,7 @@ public class InfiniteLevelGenerator : MonoBehaviour {
 	}
 
 	void InstantiateObjects(){
-		deadline = DoodlePlayer.player.position.y - 36.0f;
+		deadline = DoodlePlayer.player.position.y - 50.0f;
 
 		counter +=1;
 		if (counter%3 == 0){

@@ -15,7 +15,7 @@ public class DoodlePlayer : MonoBehaviour {
 	Rigidbody2D _rigidbody;
 
 	void Awake(){
-		_animator = GetComponent<Animator>() as Animator;
+		
 		if(player != null)
 			Destroy(this.gameObject);
 		else
@@ -24,6 +24,7 @@ public class DoodlePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		_animator = GetComponent<Animator>() as Animator;
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 	
@@ -36,7 +37,8 @@ public class DoodlePlayer : MonoBehaviour {
 		}else if (movement<0){
 			_animator.SetTrigger("PlayerWalkLeft");
 		}
-		
+
+		CrossScreen();
 		GameOverJudgement();
 	}
 
@@ -53,4 +55,10 @@ public class DoodlePlayer : MonoBehaviour {
 		}
 	}
 
+	void CrossScreen(){
+		if((player.position.x>12.0f)||(player.position.x<-12.0f)){
+			player.position = new Vector3(-player.position.x,player.position.y,player.position.z);
+			// Debug.Log("OUT OF SCREEN");
+		}
+	}
 }

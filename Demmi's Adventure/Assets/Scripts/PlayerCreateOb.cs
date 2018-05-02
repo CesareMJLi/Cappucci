@@ -13,6 +13,8 @@ public class PlayerCreateOb : MonoBehaviour {
 	private int obj_ava_index;
 	public GameObject Object;
 
+	public List<GameObject> objects_in_scene;
+
 	// Use this for initialization
 	void Start () {
 		objects_available = new List<int>();
@@ -124,9 +126,13 @@ public class PlayerCreateOb : MonoBehaviour {
 
 		int objTag = objects_available[obj_ava_index];
 		objects_available.RemoveAt(obj_ava_index);
-		GameObject go = GameObject.FindWithTag(objTag.ToString());
-		Instantiate(go, mousePos, Quaternion.identity);
-
+		// GameObject go = GameObject.FindWithTag(objTag.ToString());
+		foreach (GameObject go in objects_in_scene){
+			if (int.Parse(go.tag) == objTag){
+				Instantiate(go, mousePos, Quaternion.identity);
+				break;
+			}
+		}
 		numObjects-=1;
 	}
 }
