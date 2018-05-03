@@ -56,7 +56,7 @@ public class DoodlePlayer : MonoBehaviour {
 	}
 
 	void CrossScreen(){
-		if((player.position.x>12.0f)||(player.position.x<-12.0f)){
+		if((player.position.x>18.0f)||(player.position.x<-18.0f)){
 			player.position = new Vector3(-player.position.x,player.position.y,player.position.z);
 			// Debug.Log("OUT OF SCREEN");
 		}
